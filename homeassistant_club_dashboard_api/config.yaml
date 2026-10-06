@@ -1,0 +1,45 @@
+name: "Homeassistant Sports Club Dashboard API"
+description: "An intergration of Syltek and Home Assistant with a custom dashboard"
+version: "1.0.51"
+slug: "homeassistant_club_dashboard_api"
+init: false
+homeassistant_api: true
+arch:
+  - aarch64
+  - amd64
+startup: services
+ports:
+  5000/tcp: 5000
+  5001/tcp: 5001
+options:
+  club_uuid: ""
+  # club_name: ""
+  home_assistant_access_token: ""
+  mqtt_broker: ""
+  mqtt_port: 1883
+  # mqtt_user_name: ""
+  # mqtt_user_password: ""
+  club_id: ""
+  back_end_url: ""
+  ok_cloud_access_token: ""
+  facility_id: ""
+  integrated_club: false
+  integrated_club_mode: ""
+schema:
+  club_uuid: str
+  # club_name: str
+  home_assistant_access_token: password
+  mqtt_broker: str
+  mqtt_port: int
+  # mqtt_user_name: str
+  # mqtt_user_password: password
+  club_id: int
+  back_end_url: str
+  ok_cloud_access_token: password
+  facility_id: int
+  integrated_club: bool
+  integrated_club_mode: list(none|syltek|taykus|playtomic)
+map:
+  - ssl:rw
+webui: "http://[HOST]:[PORT:8000]"
+image: ghcr.io/lupos-hub/{arch}-srlobo-api
