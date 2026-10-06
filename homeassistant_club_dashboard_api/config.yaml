@@ -6,7 +6,6 @@ init: false
 homeassistant_api: true
 arch:
   - aarch64
-  - amd64
 startup: services
 ports:
   5000/tcp: 5000
